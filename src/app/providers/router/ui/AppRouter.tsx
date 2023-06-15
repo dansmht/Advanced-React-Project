@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
+import classes from './AppRouter.scss';
 
 export const AppRouter = () => {
   return (
@@ -10,7 +11,11 @@ export const AppRouter = () => {
           <Route
             key={path}
             path={path}
-            element={element}
+            element={(
+              <div className={classes.PageWrapper}>
+                {element}
+              </div>
+            )}
           />
         ))}
       </Routes>

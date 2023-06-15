@@ -1,7 +1,6 @@
 import { FC } from "react";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
-import { AppLink } from "shared/ui/AppLink/AppLink";
+import { AppLink } from "shared/ui";
 import classes from './NavBar.scss';
 
 interface NavBarProps {
