@@ -1,5 +1,4 @@
 import { createContext } from "react";
-
 import { SetState } from "shared/types/ReactTypes";
 
 export enum Theme {
