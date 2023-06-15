@@ -5,7 +5,7 @@ import classes from './AppRouter.scss';
 
 export const AppRouter = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>...</div>}>
       <Routes>
         {Object.values(routeConfig).map(({ path, element }) => (
           <Route
