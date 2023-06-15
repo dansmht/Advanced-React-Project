@@ -1,4 +1,6 @@
-import { createContext, Dispatch, SetStateAction } from "react";
+import { createContext } from "react";
+
+import { SetState } from "shared/types/ReactTypes";
 
 export enum Theme {
   LIGHT = 'light',
@@ -7,7 +9,7 @@ export enum Theme {
 
 export interface ThemeContextProps {
   theme?: Theme;
-  setTheme?: Dispatch<SetStateAction<Theme>>;
+  setTheme?: SetState<Theme>;
 }
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
