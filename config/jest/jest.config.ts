@@ -18,7 +18,12 @@ export default {
     "json",
     "node"
   ],
+  modulePaths: ["<rootDir>src"],
+  moduleNameMapper: {
+    "\\.(scss)$": "identity-obj-proxy",
+  },
   rootDir: "../../",
+  setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
   testEnvironment: "jsdom",
   testMatch: ["<rootDir>src/**/*(*.)@(test).[jt]s?(x)"],
 } as Config;
