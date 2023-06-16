@@ -6,17 +6,15 @@
 @font-face {
   font-family: Consolas;
   src: url('../../shared/assets/fonts/consolas.woff') format("truetype"),
-  url('../../shared/assets/fonts/consolas.woff2') format("truetype");
+       url('../../shared/assets/fonts/consolas.woff2') format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 .App {
   font: var(--font-m);
-
   background-color: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
 
   .Content {

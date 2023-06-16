@@ -2,7 +2,6 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { Button } from "shared/ui";
-import classes from "./LangSwitcher.scss";
 
 interface LangSwitcherProps {
   className?: string;
@@ -18,7 +17,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
 
   return (
     <Button
-      className={classNames(classes.LangSwitcher, className)}
+      className={classNames(className)}
       onClick={toggleLanguage}
     >
       {t("language")}
