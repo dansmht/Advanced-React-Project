@@ -1,4 +1,5 @@
 import type {Config} from "jest";
+import path from "path";
 
 export default {
   clearMocks: true,
@@ -21,6 +22,7 @@ export default {
   modulePaths: ["<rootDir>src"],
   moduleNameMapper: {
     "\\.(scss)$": "identity-obj-proxy",
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
   },
   rootDir: "../../",
   setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
