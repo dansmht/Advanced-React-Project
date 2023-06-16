@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import classNames from "classnames";
-import { AppRouter } from "app/providers/router";
+import { AppRouter, useTheme } from "app/providers";
 import { NavBar, SideBar } from "widgets";
 import { Loader } from "shared/ui";
-import { useTheme } from "app/providers/ThemeProvider";
 import classes from "./styles/index.scss";
 
 export const App = () => {

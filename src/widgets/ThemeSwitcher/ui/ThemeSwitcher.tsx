@@ -1,9 +1,9 @@
 import { FC } from "react";
 import classNames from "classnames";
+import { Theme, useTheme } from "app/providers";
 import { Button } from "shared/ui";
 import LightIcon from "shared/assets/icons/theme-light.svg";
 import DarkIcon from "shared/assets/icons/theme-dark.svg";
-import { Theme, useTheme } from "app/providers/ThemeProvider";
 
 interface ThemeSwitcherProps {
   className?: string;

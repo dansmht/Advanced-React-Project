@@ -2,5 +2,7 @@
   "language": "English",
   "main": "Main",
   "about": "About",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "errorMessage": "Something went wrong",
+  "reloadPage": "Reload the page"
 }
