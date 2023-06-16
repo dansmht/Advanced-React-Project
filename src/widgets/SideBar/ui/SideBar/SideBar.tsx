@@ -13,7 +13,7 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
-  }
+  };
 
   return (
     <div

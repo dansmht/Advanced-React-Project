@@ -10,5 +10,5 @@ render(
       <App />
     </ThemeProvider>
   </Router>,
-  document.getElementById('root'),
+  document.getElementById("root"),
 );

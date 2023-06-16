@@ -13,7 +13,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     mode: mode,
     entry: paths.entry,
     output: {
-      filename: '[name].[contenthash].js',
+      filename: "[name].[contenthash].js",
       path: paths.build,
       clean: true,
     },
@@ -23,6 +23,6 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     },
     resolve: buildResolvers(options),
     devServer: isDev ? buildDevServer(options) : undefined,
-    devtool: isDev ? 'inline-source-map' : undefined,
-  }
+    devtool: isDev ? "inline-source-map" : undefined,
+  };
 };
