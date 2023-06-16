@@ -1,0 +1,11 @@
+.PageLoaderWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .Loader {
+    width: var(--page-loader-size);
+    height: var(--page-loader-size);
+  }
+}
