@@ -3,6 +3,7 @@ import { StylesDecorator } from "../../src/shared/config/storybook/decorators/St
 import { ThemeDecorator } from "../../src/shared/config/storybook/decorators/ThemeDecorator";
 import { RouterDecorator } from "../../src/shared/config/storybook/decorators/RouterDecorator";
 import { Theme } from "../../src/app/providers";
+import i18n from "../../src/shared/config/i18n/i18nForStorybook";
 
 const preview: Preview = {
   decorators: [
@@ -11,6 +12,7 @@ const preview: Preview = {
     RouterDecorator,
   ],
   parameters: {
+    i18n,
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
@@ -18,6 +20,13 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+  },
+  globals: {
+    locale: "en",
+    locales: {
+      en: "English",
+      ru: "Русский"
+    }
   },
 };
 
