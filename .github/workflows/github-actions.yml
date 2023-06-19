@@ -27,10 +27,15 @@ jobs:
           npm install
           npm run build:prod
 
-      - name: Lint
+      - name: Lint (ts, scss)
         run: |
           npm run lint:ts
           npm run lint:scss
 
       - name: Test
         run: npm run test:unit
+
+      - name: Test (UI)
+        run: |
+          npm run storybook:build
+          npm run test:ui:ci
