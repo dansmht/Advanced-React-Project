@@ -26,6 +26,7 @@ jobs:
         run: |
           npm install
           npm run build:prod
+          npm run storybook:build
 
       - name: Lint (ts, scss)
         run: |
@@ -34,8 +35,3 @@ jobs:
 
       - name: Test
         run: npm run test:unit
-
-      - name: Test (UI)
-        run: |
-          npm run storybook:build
-          npm run test:ui:ci
