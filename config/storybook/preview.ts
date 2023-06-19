@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import { StylesDecorator } from "../../src/shared/config/storybook/decorators/StylesDecorator";
 import { ThemeDecorator } from "../../src/shared/config/storybook/decorators/ThemeDecorator";
 import { RouterDecorator } from "../../src/shared/config/storybook/decorators/RouterDecorator";
+import { defaultTheme } from "../../src/app/providers/ThemeProvider/ui/ThemeProvider";
 import i18n from "../../src/shared/config/i18n/i18nForStorybook";
 
 const preview: Preview = {
@@ -30,7 +31,7 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: "Global theme for components",
-      defaultValue: "light",
+      defaultValue: defaultTheme,
       toolbar: {
         title: "Theme",
         icon: "chromatic",
