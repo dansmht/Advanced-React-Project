@@ -1,10 +1,23 @@
 .SideBar {
-  position: relative;
+  position: fixed;
   width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
+  padding: var(--content-top-padding) var(--content-horizontal-padding) 20px;
   background-color: var(--primary-bg-color);
   border-right: 2px solid var(--secondary-bg-color);
   transition: width 0.3s ease-in-out;
+
+  .Links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font: var(--font-md);
+
+    & > a {
+      white-space: nowrap;
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
 
   .ToggleButton {
     position: absolute;
@@ -13,14 +26,14 @@
     bottom: 80px;
     left: 100%;
     background-color: var(--secondary-bg-color);
-    color: var(--tertiary-text-color);
+    color: var(--accent-primary-color);
     border-bottom-right-radius: 50%;
     border-top-right-radius: 50%;
     border: 2px solid var(--secondary-bg-color);
 
     &:hover,
     &:focus {
-      border-color: var(--tertiary-bg-color);
+      border-color: var(--hover-bg-color);
 
       &::after {
         content: '<';
@@ -41,17 +54,14 @@
   &.collapsed {
     width: var(--sidebar-width-collapsed);
 
+    .Links {
+      & > a {
+        opacity: 0;
+      }
+    }
+
     & .ToggleButton::after {
       transform: rotate(180deg);
     }
-  }
-
-  .Switchers {
-    position: absolute;
-    width: 100%;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    column-gap: 20px;
   }
 }

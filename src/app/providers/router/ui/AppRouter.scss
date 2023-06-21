@@ -1,3 +1,4 @@
 .PageWrapper {
-  flex-grow: 1;
+  padding-top: var(--content-top-padding);
+  padding-left: calc(var(--sidebar-width) + var(--content-horizontal-padding));
 }

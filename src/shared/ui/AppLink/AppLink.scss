@@ -1,7 +1,21 @@
 .AppLink {
-  color: var(--primary-text-color);
+  &.primary {
+    color: var(--primary-text-color);
 
-  &:hover {
-    color: var(--tertiary-text-color);
+    &:hover {
+      color: var(--accent-primary-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--secondary-text-color);
+
+    &:hover {
+      color: var(--primary-text-color);
+    }
+  }
+
+  &.Active {
+    color: var(--accent-primary-color);
   }
 }

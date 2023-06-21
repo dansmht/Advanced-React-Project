@@ -12,12 +12,13 @@
 }
 
 .App {
-  font: var(--font-m);
+  font: var(--font-sm);
   background-color: var(--primary-bg-color);
   color: var(--primary-text-color);
   min-height: 100vh;
 
   .Content {
-    display: flex;
+    max-width: var(--content-width);
+    margin: 0 auto;
   }
 }

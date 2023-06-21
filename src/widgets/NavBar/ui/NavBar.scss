@@ -7,9 +7,18 @@
   padding: 20px;
   border-bottom: 2px solid var(--secondary-bg-color);
 
-  .Links {
-    display: flex;
+  .Title {
+    font-size: var(--font-size-lg);
+  }
+
+  .Switchers {
     margin-left: auto;
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    & > button {
+      display: flex;
+    }
   }
 }

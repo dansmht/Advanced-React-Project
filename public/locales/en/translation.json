@@ -4,5 +4,6 @@
   "about": "About",
   "pageNotFound": "Page not found",
   "errorMessage": "Something went wrong",
-  "reloadPage": "Reload the page"
+  "reloadPage": "Reload the page",
+  "advancedReactProject": "Advanced React Project"
 }

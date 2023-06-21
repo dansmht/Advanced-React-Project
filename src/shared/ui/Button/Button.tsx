@@ -3,7 +3,6 @@ import classNames from "classnames";
 import classes from "./Button.scss";
 
 export enum ButtonTheme {
-  PRIMARY = "clear",
   CLEAR = "clear",
   OUTLINE = "outline",
 }

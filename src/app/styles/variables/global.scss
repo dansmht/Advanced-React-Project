@@ -1,15 +1,32 @@
 :root {
+  // font
   --font-family-main: consolas, "Times New Roman", serif;
-  --font-size-m: 16px;
-  --font-line-m: 24px;
-  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-  --font-size-l: 24px;
-  --font-line-l: 32px;
-  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-size-sm: 16px;
+  --font-line-sm: 24px;
+  --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
+  --font-size-md: 20px;
+  --font-line-md: 28px;
+  --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family-main);
+  --font-size-lg: 24px;
+  --font-line-lg: 32px;
+  --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family-main);
+
+  // content
+  --content-width: 1440px;
+  --content-top-padding: 50px;
+  --content-horizontal-padding: 28px;
+
+  // navbar
   --navbar-height: 50px;
-  --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
+
+  // sidebar
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 120px;
+
+  // loader
   --loader-size: 50px;
   --page-loader-size: 150px;
+
+  // border
   --border-radius: 6px;
 }

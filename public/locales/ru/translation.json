@@ -4,5 +4,6 @@
   "about": "О сайте",
   "pageNotFound": "Страница не найдена",
   "errorMessage": "Что-то пошло не так",
-  "reloadPage": "Обновить страницу"
+  "reloadPage": "Обновить страницу",
+  "advancedReactProject": "Продвинутый React Проект"
 }

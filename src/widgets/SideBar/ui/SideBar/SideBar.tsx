@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import { LangSwitcher, ThemeSwitcher } from "widgets";
-import { Button } from "shared/ui";
+import { AppLink, Button } from "shared/ui";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import classes from "./SideBar.scss";
 
 interface SideBarProps {
@@ -9,6 +10,8 @@ interface SideBarProps {
 }
 
 export const SideBar: FC<SideBarProps> = ({ className }) => {
+
+  const { t } = useTranslation();
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -23,16 +26,16 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
         [classes.collapsed]: collapsed,
       }, className)}
     >
+      <div className={classes.Links}>
+        <AppLink to={RoutePath.main} checkIsActive>{t("main")}</AppLink>
+        <AppLink to={RoutePath.about} checkIsActive>{t("about")}</AppLink>
+      </div>
+
       <Button
         data-testid="sidebar-toggle"
         className={classNames(classes.ToggleButton)}
         onClick={onToggle}
       />
-
-      <div className={classes.Switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher />
-      </div>
     </div>
   );
 };
