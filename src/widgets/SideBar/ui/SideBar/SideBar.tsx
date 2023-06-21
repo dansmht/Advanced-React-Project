@@ -25,10 +25,10 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
     >
       <Button
         data-testid="sidebar-toggle"
+        className={classNames(classes.ToggleButton)}
         onClick={onToggle}
-      >
-        {/* toggle */}
-      </Button>
+      />
+
       <div className={classes.Switchers}>
         <ThemeSwitcher />
         <LangSwitcher />

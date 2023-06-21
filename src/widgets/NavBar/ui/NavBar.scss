@@ -1,10 +1,11 @@
 .NavBar {
   width: 100%;
   height: var(--navbar-height);
-  background-color: var(--inverted-bg-color);
+  background-color: var(--primary-bg-color);
   display: flex;
   align-items: center;
   padding: 20px;
+  border-bottom: 2px solid var(--secondary-bg-color);
 
   .Links {
     display: flex;
