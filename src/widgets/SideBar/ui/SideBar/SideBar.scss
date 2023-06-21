@@ -13,9 +13,18 @@
     row-gap: 10px;
     font: var(--font-md);
 
-    & > a {
-      white-space: nowrap;
-      transition: opacity 0.2s ease-in-out;
+    .Link {
+      .LinkText {
+        display: block;
+        width: calc(100% - 26px);
+        white-space: nowrap;
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      & > svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -55,8 +64,10 @@
     width: var(--sidebar-width-collapsed);
 
     .Links {
-      & > a {
-        opacity: 0;
+      .Link {
+        .LinkText {
+          opacity: 0;
+        }
       }
     }
 

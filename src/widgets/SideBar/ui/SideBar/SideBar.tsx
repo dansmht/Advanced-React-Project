@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { AppLink, Button } from "shared/ui";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import classes from "./SideBar.scss";
+import Icons from "shared/assets/icons";
 
 interface SideBarProps {
   className?: string;
@@ -27,8 +28,27 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
       }, className)}
     >
       <div className={classes.Links}>
-        <AppLink to={RoutePath.main} checkIsActive>{t("main")}</AppLink>
-        <AppLink to={RoutePath.about} checkIsActive>{t("about")}</AppLink>
+        <AppLink
+          to={RoutePath.main}
+          leftIcon={<Icons.Home />}
+          className={classes.Link}
+          checkIsActive
+        >
+          <span className={classes.LinkText}>
+            {t("main")}
+          </span>
+        </AppLink>
+
+        <AppLink
+          to={RoutePath.about}
+          leftIcon={<Icons.Notes />}
+          className={classes.Link}
+          checkIsActive
+        >
+          <span className={classes.LinkText}>
+            {t("about")}
+          </span>
+        </AppLink>
       </div>
 
       <Button

@@ -1,0 +1,7 @@
+@mixin text-and-svg-color($color) {
+  color: $color;
+
+  & svg {
+    fill: $color;
+  }
+}

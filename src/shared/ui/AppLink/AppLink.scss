@@ -1,21 +1,27 @@
+@import "src/app/styles/mixins";
+
 .AppLink {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+
   &.primary {
-    color: var(--primary-text-color);
+    @include text-and-svg-color(var(--primary-text-color));
 
     &:hover {
-      color: var(--accent-primary-color);
+      @include text-and-svg-color(var(--accent-primary-color));
     }
   }
 
   &.secondary {
-    color: var(--secondary-text-color);
+    @include text-and-svg-color(var(--secondary-text-color));
 
     &:hover {
-      color: var(--primary-text-color);
+      @include text-and-svg-color(var(--primary-text-color));
     }
   }
 
   &.Active {
-    color: var(--accent-primary-color);
+    @include text-and-svg-color(var(--accent-primary-color));
   }
 }
