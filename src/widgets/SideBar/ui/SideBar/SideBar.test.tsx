@@ -1,18 +1,18 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import { renderComponent } from "shared/lib/tests/renderComponent/renderComponent";
 import { SideBar } from "widgets";
 
 describe("SideBar", () => {
   it("should render", () => {
-    renderWithTranslation(<SideBar />);
+    renderComponent(<SideBar />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
   it("should not be toggled by default", () => {
-    renderWithTranslation(<SideBar />);
+    renderComponent(<SideBar />);
     expect(screen.getByTestId("sidebar")).not.toHaveClass("collapsed");
   });
   it("should toggle", () => {
-    renderWithTranslation(<SideBar />);
+    renderComponent(<SideBar />);
     const toggleButton = screen.getByTestId("sidebar-toggle");
     fireEvent.click(toggleButton);
     expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
