@@ -1,9 +1,7 @@
-import { FC, MouseEventHandler, ReactNode, useCallback, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Button, ButtonTheme, Portal } from "shared/ui";
 import { EventCodes } from "shared/constants/eventCodes";
-import { contentVariants, overlayVariants, transition } from "shared/ui/Modal/constants/motion";
 import classes from "./Modal.scss";
 
 interface ModalProps {
@@ -14,6 +12,8 @@ interface ModalProps {
   children?: ReactNode;
 }
 
+const CLOSE_DELAY = 100;
+
 export const Modal: FC<ModalProps> = ({
   isOpen,
   title,
@@ -22,13 +22,44 @@ export const Modal: FC<ModalProps> = ({
   children,
 }) => {
 
+  const defaultModalClassName = classNames(classes.ModalOverlay, className);
+
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const [modalClassName, setModalClassName] = useState(defaultModalClassName);
+  const [isClosing, setIsClosing] = useState(false);
+
   const stopPropagation: MouseEventHandler = (e) => {
     e.stopPropagation();
   };
 
   const onModalClose = useCallback(() => {
-    onClose();
+    setIsClosing(true);
+    closeTimerRef.current = setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, CLOSE_DELAY);
   }, [onClose]);
+
+  // Animation on modal open
+  useEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        setModalClassName(classNames(defaultModalClassName, classes.Open));
+      });
+    }
+
+    return () => {
+      setModalClassName(defaultModalClassName);
+    };
+  }, [defaultModalClassName, isOpen]);
+
+  // Animation on modal close
+  useEffect(() => {
+    setModalClassName((prev) => classNames(prev, {
+      [classes.Closing]: isClosing,
+    }));
+  }, [isClosing]);
 
   useEffect(() => {
     const onEscapeClose = (e: KeyboardEvent) => {
@@ -46,54 +77,41 @@ export const Modal: FC<ModalProps> = ({
     }
 
     return () => {
+      clearTimeout(closeTimerRef.current);
       document.removeEventListener("keydown", onEscapeClose);
     };
   }, [isOpen, onModalClose]);
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <Portal>
-          <motion.div
-            className={classNames(classes.ModalOverlay, className)}
-            onClick={onModalClose}
-            initial={"initial"}
-            animate={"animate"}
-            exit={"initial"}
-            transition={transition}
-            variants={overlayVariants}
-          >
-            <motion.div
-              className={classes.ContentWrapper}
-              initial={"initial"}
-              animate={"animate"}
-              exit={"exit"}
-              transition={transition}
-              variants={contentVariants}
-            >
-              <div className={classes.Content} onClick={stopPropagation}>
-                <header className={classes.ModalHeader}>
-                  <h3 className={classes.ModalTitle}>
-                    {title}
-                  </h3>
+    <Portal>
+      <div
+        className={modalClassName}
+        onClick={onModalClose}
+      >
+        <div className={classes.ContentWrapper}>
+          <div className={classes.Content} onClick={stopPropagation}>
+            <header className={classes.ModalHeader}>
+              <h3 className={classes.ModalTitle}>
+                {title}
+              </h3>
 
-                  <Button
-                    theme={ButtonTheme.FILLED}
-                    className={classes.CloseButton}
-                    onClick={onModalClose}
-                  >
-                    ESC
-                  </Button>
-                </header>
+              <Button
+                theme={ButtonTheme.FILLED}
+                className={classes.CloseButton}
+                onClick={onModalClose}
+              >
+                ESC
+              </Button>
+            </header>
 
-                <div className={classes.ModalBody}>
-                  {children}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </Portal>
-      )}
-    </AnimatePresence>
+            <div className={classes.ModalBody}>
+              {children}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Portal>
   );
 };
