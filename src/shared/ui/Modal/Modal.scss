@@ -26,10 +26,6 @@
       width: 100%;
       border-radius: 8px;
       background-color: var(--secondary-bg-color);
-      transform: scale(0.7);
-      opacity: 0;
-      transition: transform 0.1s ease-in,
-                  opacity 0.1s ease-in;
 
       .ModalHeader {
         height: 50px;
@@ -56,20 +52,6 @@
       .ModalBody {
         padding: var(--modal-padding);
       }
-    }
-  }
-
-  &.Open {
-    .Content {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  &.Closing {
-    .Content {
-      transform: scale(0.7);
-      opacity: 0;
     }
   }
 }
