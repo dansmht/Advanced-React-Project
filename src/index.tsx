@@ -1,17 +1,25 @@
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ErrorBoundary, ThemeProvider } from "app/providers";
 import { App } from "app/App";
 import "shared/config/i18n/i18n";
 import "app/styles/index.scss";
 
-render(
+const containerId = "root";
+const container = document.getElementById(containerId);
+
+if (!container) {
+  throw new Error(`Can't find element with id "${containerId}"`);
+}
+
+const root = createRoot(container);
+
+root.render(
   <Router>
     <ErrorBoundary>
       <ThemeProvider>
         <App />
       </ThemeProvider>
     </ErrorBoundary>
-  </Router>,
-  document.getElementById("root"),
+  </Router>
 );

@@ -14,6 +14,7 @@ interface AppLinkProps extends NavLinkProps {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   className?: string;
+  children?: ReactNode;
 }
 
 export const AppLink: FC<AppLinkProps> = ({

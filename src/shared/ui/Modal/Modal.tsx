@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Button, ButtonTheme, Portal } from "shared/ui";
 import { EventCodes } from "shared/constants/eventCodes";
@@ -9,6 +9,7 @@ interface ModalProps {
   title: string;
   className?: string;
   onClose: () => void;
+  children?: ReactNode;
 }
 
 const CLOSE_DELAY = 100;
