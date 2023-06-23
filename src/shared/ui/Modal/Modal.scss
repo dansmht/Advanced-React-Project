@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--overlay-bg-color);
-  //backdrop-filter: var(--backdrop-blur);
+  backdrop-filter: var(--modal-backdrop-blur);
   z-index: var(--z-index-modal-overlay);
 
   .ContentWrapper {
@@ -22,25 +22,39 @@
     z-index: var(--z-index-modal-content);
 
     .Content {
-      max-width: 750px;
+      max-width: 500px;
       width: 100%;
       border-radius: 8px;
       background-color: var(--secondary-bg-color);
-      transform: scale(0.5);
-      transition: transform 0.3s ease-in;
+      transform: scale(0.7);
+      opacity: 0;
+      transition: transform 0.1s ease-in,
+                  opacity 0.1s ease-in;
 
       .ModalHeader {
         height: 50px;
-        padding: 0 24px;
+        padding: 0 var(--modal-padding);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid var(--hover-bg-color);
+
+        .ModalTitle {
+          font: var(--font-md);
+          font-weight: bold;
+        }
 
         .CloseButton {
-          font-size: 12px;
+          font-size: 10px;
+          font-weight: bold;
+          letter-spacing: 0.5px;
           padding: 0 5px;
           background-color: var(--hover-bg-color);
         }
+      }
+
+      .ModalBody {
+        padding: var(--modal-padding);
       }
     }
   }
@@ -48,6 +62,14 @@
   &.Open {
     .Content {
       transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &.Closing {
+    .Content {
+      transform: scale(0.7);
+      opacity: 0;
     }
   }
 }
