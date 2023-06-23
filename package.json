@@ -78,6 +78,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "framer-motion": "^10.12.17",
     "i18next": "^23.2.3",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",
