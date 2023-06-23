@@ -2,23 +2,29 @@
   width: 100%;
   height: var(--navbar-height);
   background-color: var(--primary-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
   border-bottom: 2px solid var(--secondary-bg-color);
 
-  .Title {
-    font-size: var(--font-size-lg);
-  }
-
-  .Switchers {
-    margin-left: auto;
+  .NavBarContent {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    height: 100%;
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    padding: 0 var(--content-horizontal-padding);
 
-    & > button {
+    .Title {
+      font-size: var(--font-size-lg);
+    }
+
+    .Switchers {
+      margin-left: auto;
       display: flex;
+      align-items: center;
+      column-gap: 20px;
+
+      & > button {
+        display: flex;
+      }
     }
   }
 }

@@ -21,6 +21,6 @@ export const Clear: Story = {
 export const Outline: Story = {
   args: {
     children: "Button",
-    theme: ButtonTheme.OUTLINE,
+    theme: ButtonTheme.FILLED,
   },
 };

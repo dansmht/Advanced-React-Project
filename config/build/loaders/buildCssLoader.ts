@@ -9,8 +9,9 @@ export const buildCssLoader = (isDev: boolean) => {
         loader: "css-loader",
         options: {
           modules: {
+            auto: (resourcePath: string) => !resourcePath.includes("\\styles\\"),
             localIdentName: isDev ? "[local]_[hash:base64:3]_[name]" : "[hash:base64:8]",
-          },
+          }
         }
       },
       "sass-loader",

@@ -14,13 +14,15 @@ export const NavBar: FC<NavBarProps> = ({ className }) => {
 
   return (
     <div className={classNames(classes.NavBar, className)}>
-      <div>
-        <h1 className={classes.Title}>{t("advancedReactProject")}</h1>
-      </div>
+      <div className={classes.NavBarContent}>
+        <div>
+          <h1 className={classes.Title}>{t("advancedReactProject")}</h1>
+        </div>
 
-      <div className={classes.Switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher />
+        <div className={classes.Switchers}>
+          <ThemeSwitcher />
+          <LangSwitcher />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,53 @@
+.ModalOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-bg-color);
+  //backdrop-filter: var(--backdrop-blur);
+  z-index: var(--z-index-modal-overlay);
+
+  .ContentWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    overscroll-behavior-y: none;
+    z-index: var(--z-index-modal-content);
+
+    .Content {
+      max-width: 750px;
+      width: 100%;
+      border-radius: 8px;
+      background-color: var(--secondary-bg-color);
+      transform: scale(0.5);
+      transition: transform 0.3s ease-in;
+
+      .ModalHeader {
+        height: 50px;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .CloseButton {
+          font-size: 12px;
+          padding: 0 5px;
+          background-color: var(--hover-bg-color);
+        }
+      }
+    }
+  }
+
+  &.Open {
+    .Content {
+      transform: scale(1);
+    }
+  }
+}

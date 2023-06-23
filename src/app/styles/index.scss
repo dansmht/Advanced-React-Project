@@ -11,14 +11,7 @@
   font-style: normal;
 }
 
-.App {
+body {
   font: var(--font-sm);
-  background-color: var(--primary-bg-color);
   color: var(--primary-text-color);
-  min-height: 100vh;
-
-  .Content {
-    max-width: var(--content-width);
-    margin: 0 auto;
-  }
 }

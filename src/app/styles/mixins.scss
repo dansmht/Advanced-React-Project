@@ -5,3 +5,19 @@
     fill: $color;
   }
 }
+
+@mixin text-and-svg-colors-with-hover($color, $hover-color) {
+  @include text-and-svg-color($color);
+
+  &:hover {
+    @include text-and-svg-color($hover-color);
+  }
+}
+
+@mixin outline-color($color) {
+  outline: transparent solid 2px;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px $color;
+  }
+}

@@ -1,24 +1,25 @@
 @import "src/app/styles/mixins";
 
 .AppLink {
+  @include outline-color(var(--primary-text-color));
+
   display: flex;
   align-items: center;
   column-gap: 6px;
+  border-radius: var(--border-radius);
 
   &.primary {
-    @include text-and-svg-color(var(--primary-text-color));
-
-    &:hover {
-      @include text-and-svg-color(var(--accent-primary-color));
-    }
+    @include text-and-svg-colors-with-hover(
+      var(--primary-text-color),
+      var(--accent-primary-color),
+    );
   }
 
   &.secondary {
-    @include text-and-svg-color(var(--secondary-text-color));
-
-    &:hover {
-      @include text-and-svg-color(var(--primary-text-color));
-    }
+    @include text-and-svg-colors-with-hover(
+      var(--secondary-text-color),
+      var(--primary-text-color),
+    );
   }
 
   &.Active {
