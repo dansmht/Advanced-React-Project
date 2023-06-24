@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Counter } from "entities/Counter";
 
 const MainPage = () => {
 
@@ -7,6 +8,7 @@ const MainPage = () => {
   return (
     <div>
       {t("main")}
+      <Counter />
     </div>
   );
 };

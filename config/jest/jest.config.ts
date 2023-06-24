@@ -1,7 +1,10 @@
-import type {Config} from "jest";
-import path from "path";
+import type { Config } from "jest";
+import * as path from "path";
 
 export default {
+  globals: {
+    __IS_DEV__: true,
+  },
   clearMocks: true,
   coveragePathIgnorePatterns: [
     "\\\\node_modules\\\\"

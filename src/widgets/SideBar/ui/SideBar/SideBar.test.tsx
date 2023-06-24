@@ -3,16 +3,20 @@ import { renderComponent } from "shared/lib/tests/renderComponent/renderComponen
 import { SideBar } from "widgets";
 
 describe("SideBar", () => {
-  it("should render", () => {
+
+  beforeEach(() => {
     renderComponent(<SideBar />);
+  });
+
+  it("should render", () => {
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
+
   it("should not be toggled by default", () => {
-    renderComponent(<SideBar />);
     expect(screen.getByTestId("sidebar")).not.toHaveClass("collapsed");
   });
+
   it("should toggle", () => {
-    renderComponent(<SideBar />);
     const toggleButton = screen.getByTestId("sidebar-toggle");
     fireEvent.click(toggleButton);
     expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
