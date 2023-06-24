@@ -21,7 +21,7 @@ export const ThemeDecorator: Decorator = (Story, context) => {
 
   useLayoutEffect(() => {
     document.documentElement.className = theme;
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

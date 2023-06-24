@@ -21,10 +21,10 @@ export const Counter: FC = () => {
     <div data-testid="counter">
       <p data-testid="counter-value">{count}</p>
       <Button data-testid="counter-increment-btn" onClick={increment}>
-        increment
+        +
       </Button>
       <Button data-testid="counter-decrement-btn" onClick={decrement}>
-        decrement
+        -
       </Button>
     </div>
   );

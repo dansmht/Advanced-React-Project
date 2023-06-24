@@ -1,10 +1,10 @@
 import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+import SvgIcons from "shared/assets/icons";
 import { AppLink, Button } from "shared/ui";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import classes from "./SideBar.scss";
-import Icons from "shared/assets/icons";
 
 interface SideBarProps {
   className?: string;
@@ -30,7 +30,7 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
       <div className={classes.Links}>
         <AppLink
           to={RoutePath.main}
-          leftIcon={<Icons.Home />}
+          leftIcon={<SvgIcons.Home />}
           className={classes.Link}
           checkIsActive
         >
@@ -41,7 +41,7 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
 
         <AppLink
           to={RoutePath.about}
-          leftIcon={<Icons.Notes />}
+          leftIcon={<SvgIcons.Notes />}
           className={classes.Link}
           checkIsActive
         >
