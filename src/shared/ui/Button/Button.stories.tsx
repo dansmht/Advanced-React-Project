@@ -18,9 +18,9 @@ export const Clear: Story = {
   },
 };
 
-export const Outline: Story = {
+export const FILLED: Story = {
   args: {
-    children: "Button",
+    ...Clear.args,
     theme: ButtonTheme.FILLED,
   },
 };

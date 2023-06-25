@@ -1,7 +1,8 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { renderComponent } from "shared/lib/tests/renderComponent/renderComponent";
 import { Counter } from "entities/Counter";
-import { counterState, rootState } from "../model/tests/mocks";
+import { counterState } from "../model/tests/mocks";
+import { rootState } from "shared/constants/tests/mocks";
 
 describe("Counter", () => {
 
