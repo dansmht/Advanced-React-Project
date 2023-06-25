@@ -18,5 +18,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.module.rules.push(buildSvgLoader());
   config.module.rules.push(buildCssLoader(true));
 
+  const definePlugin: webpack.DefinePlugin = config.plugins
+    .find((plugin) => plugin instanceof webpack.DefinePlugin) as webpack.DefinePlugin;
+
+  if (definePlugin) {
+    definePlugin.definitions["__IS_DEV__"] = "\"true\"";
+  }
+
   return config;
 };
