@@ -1,8 +1,12 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es2021": true,
         "jest": true
+    },
+    "globals": {
+        "__IS_DEV__": true
     },
     "extends": [
         "eslint:recommended",
@@ -36,5 +40,14 @@
         "react": {
             "version": "detect"
         }
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/src/**/*.{test,stories}.{ts,tsx}"],
+            "rules": {
+                "i18next/no-literal-string": "off",
+                "@typescript-eslint/no-empty-function": "off"
+            }
+        }
+    ]
 }

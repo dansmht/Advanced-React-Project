@@ -9,8 +9,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.resolve.modules.push(pathToSrc);
 
-  config.module.rules = config.module.rules.map((rule) => {
-    if(typeof rule !== "string" && /svg/.test(rule.test as string)) {
+  config.module.rules = config.module.rules.map((rule: { test: string }) => {
+    if(typeof rule !== "string" && /svg/.test(rule.test)) {
       return { ...rule, exclude: /\.svg/ };
     }
     return rule;
