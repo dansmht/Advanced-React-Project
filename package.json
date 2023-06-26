@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:all": "start webpack serve --env port=3000 && start node ./server/server.ts",
     "start:dev:server": "node ./server/server.ts",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
