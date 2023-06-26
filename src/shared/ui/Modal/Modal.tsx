@@ -87,17 +87,23 @@ export const Modal: FC<ModalProps> = ({
   return (
     <Portal>
       <div
+        data-testid="modal-overlay"
         className={modalClassName}
         onClick={onModalClose}
       >
         <div className={classes.ContentWrapper}>
-          <div className={classes.Content} onClick={stopPropagation}>
+          <div
+            data-testid="modal-content"
+            className={classes.Content}
+            onClick={stopPropagation}
+          >
             <header className={classes.ModalHeader}>
               <h3 className={classes.ModalTitle}>
                 {title}
               </h3>
 
               <Button
+                data-testid="modal-esc-btn"
                 theme={ButtonTheme.FILLED}
                 className={classes.CloseButton}
                 onClick={onModalClose}

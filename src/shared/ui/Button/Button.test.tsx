@@ -1,25 +1,22 @@
-import { render, screen } from "@testing-library/react";
-import { Button } from "shared/ui";
+import { screen } from "@testing-library/react";
+import { Button, ButtonTheme } from "shared/ui";
+import { renderComponent } from "shared/lib/tests/renderComponent/renderComponent";
 
 describe("Button", () => {
 
   it("should render", () => {
-    const text = "test";
-    render(<Button>{text}</Button>);
-    expect(screen.getByText(text)).toBeInTheDocument();
+    renderComponent(<Button>Button</Button>);
+    expect(screen.getByTestId("button")).toBeInTheDocument();
+    expect(screen.getByText("Button")).toBeInTheDocument();
   });
 
-  it("should have initial classname", () => {
-    const text = "test";
-    render(<Button>{text}</Button>);
-    expect(screen.getByText(text)).toHaveClass("Button");
-    expect(screen.getByText(text)).toHaveClass("clear");
+  it("should have class clear by default", () => {
+    renderComponent(<Button>Button</Button>);
+    expect(screen.getByTestId("button")).toHaveClass("clear");
   });
 
-  it("should have additional classname", () => {
-    const text = "test";
-    const className = "className";
-    render(<Button className={className}>{text}</Button>);
-    expect(screen.getByText(text)).toHaveClass(className);
+  it("should have class filled if theme prop is filled", () => {
+    renderComponent(<Button theme={ButtonTheme.FILLED}>Button</Button>);
+    expect(screen.getByTestId("button")).toHaveClass("filled");
   });
 });

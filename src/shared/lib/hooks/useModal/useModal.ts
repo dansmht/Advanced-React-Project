@@ -10,7 +10,7 @@ export const useModal = (initialIsOpen = false) => {
   const onClose = useCallback(() => {
     setIsOpen(false);
   }, []);
-  
+
   const onToggle = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);

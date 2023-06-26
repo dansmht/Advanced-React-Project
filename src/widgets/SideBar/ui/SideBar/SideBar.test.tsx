@@ -10,6 +10,9 @@ describe("SideBar", () => {
 
   it("should render", () => {
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(screen.getByTestId("sidebar-toggle")).toBeInTheDocument();
+    expect(screen.getByText("main")).toBeInTheDocument();
+    expect(screen.getByText("about")).toBeInTheDocument();
   });
 
   it("should not be toggled by default", () => {

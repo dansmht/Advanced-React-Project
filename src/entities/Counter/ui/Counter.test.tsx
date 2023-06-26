@@ -1,13 +1,16 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { renderComponent } from "shared/lib/tests/renderComponent/renderComponent";
 import { Counter } from "entities/Counter";
-import { counterState } from "../model/tests/mocks";
-import { rootState } from "shared/constants/tests/mocks";
+import { counterState } from "shared/constants/tests/mocks/counterState";
 
 describe("Counter", () => {
 
+  const initialState = {
+    counter: counterState,
+  };
+
   beforeEach(() => {
-    renderComponent(<Counter />, { initialState: rootState });
+    renderComponent(<Counter />, { initialState });
   });
 
   it("should render", () => {

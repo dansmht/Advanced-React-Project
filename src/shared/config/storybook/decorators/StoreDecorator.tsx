@@ -1,9 +1,13 @@
 import { Decorator } from "@storybook/react";
 import { StoreProvider } from "app/providers";
-import { rootState } from "shared/constants/tests/mocks";
+import { counterState } from "shared/constants/tests/mocks/counterState";
+
+const initialState = {
+  counter: counterState,
+};
 
 export const StoreDecorator: Decorator = (Story) => (
-  <StoreProvider initialState={rootState}>
+  <StoreProvider initialState={initialState}>
     <Story />
   </StoreProvider>
 );

@@ -1,8 +1,9 @@
 import { selectCounterValue, selectCounter } from "entities/Counter/model/selectors";
-import { counterState } from "./mocks";
-import { rootState } from "shared/constants/tests/mocks";
+import { counterState } from "shared/constants/tests/mocks/counterState";
 
 describe("Counter selectors", () => {
+
+  const rootState = { counter: counterState };
 
   it("should return counter state", () => {
     expect(selectCounter(rootState)).toEqual(counterState);

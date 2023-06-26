@@ -17,6 +17,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
 
   return (
     <Button
+      data-testid="lang-switcher"
       className={classNames(className)}
       onClick={toggleLanguage}
     >

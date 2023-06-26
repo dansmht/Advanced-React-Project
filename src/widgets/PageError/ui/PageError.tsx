@@ -17,7 +17,10 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
   };
 
   return (
-    <div className={classNames(classes.PageError, className)}>
+    <div
+      data-testid="page-error"
+      className={classNames(classes.PageError, className)}
+    >
       <p>{t("errorMessage")}</p>
       <Button onClick={reloadPage}>
         {t("reloadPage")}

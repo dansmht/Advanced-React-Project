@@ -29,6 +29,7 @@ export const AppLink: FC<AppLinkProps> = ({
 }) => {
   return (
     <NavLink
+      data-testid="app-link"
       to={to}
       className={({ isActive }) =>
         classNames(classes.AppLink, classes[theme], {[classes.Active]: checkIsActive && isActive}, className)}

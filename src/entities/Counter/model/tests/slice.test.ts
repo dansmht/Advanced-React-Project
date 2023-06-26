@@ -1,5 +1,5 @@
 import { counterActions, counterReducer } from "../slice";
-import { counterState } from "./mocks";
+import { counterState } from "shared/constants/tests/mocks/counterState";
 
 describe("Counter slice", () => {
 
