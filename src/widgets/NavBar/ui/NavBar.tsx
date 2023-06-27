@@ -36,12 +36,16 @@ export const NavBar: FC<NavBarProps> = ({ className }) => {
           <Button
             onClick={onOpen}
           >
-            {t("login2")}
+            {t("login")}
           </Button>
         </div>
       </div>
 
-      <LoginModal isOpen={isOpen} onClose={onClose} />
+      <LoginModal
+        isOpen={isOpen}
+        title={t("login2")}
+        onClose={onClose}
+      />
     </div>
   );
 };
