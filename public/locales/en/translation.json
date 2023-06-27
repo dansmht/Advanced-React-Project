@@ -5,5 +5,9 @@
   "pageNotFound": "Page not found",
   "errorMessage": "Something went wrong",
   "reloadPage": "Reload the page",
-  "advancedReactProject": "Advanced React Project"
+  "advancedReactProject": "Advanced React Project",
+  "login": "Login",
+  "login2": "Login",
+  "register": "Register",
+  "registration": "Registration"
 }

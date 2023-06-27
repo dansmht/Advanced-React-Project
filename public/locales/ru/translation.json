@@ -5,5 +5,9 @@
   "pageNotFound": "Страница не найдена",
   "errorMessage": "Что-то пошло не так",
   "reloadPage": "Обновить страницу",
-  "advancedReactProject": "Продвинутый React Проект"
+  "advancedReactProject": "Продвинутый React Проект",
+  "login": "Войти",
+  "login2": "Вход",
+  "register": "Зарегистрироваться",
+  "registration": "Регистрация"
 }
