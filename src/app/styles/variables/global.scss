@@ -1,6 +1,7 @@
 :root {
   // font
   --font-family-main: consolas, "Times New Roman", serif;
+  --font-size-xs: 12px;
   --font-size-sm: 16px;
   --font-line-sm: 24px;
   --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
@@ -10,6 +11,9 @@
   --font-size-lg: 24px;
   --font-line-lg: 32px;
   --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family-main);
+
+  // colors
+  --transparent-color: #0000;
 
   // content
   --content-width: 1440px;

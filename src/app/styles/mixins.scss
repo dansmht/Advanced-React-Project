@@ -21,3 +21,9 @@
     box-shadow: 0 0 0 2px $color;
   }
 }
+
+@mixin outline-focus-within($color) {
+  &:focus-within {
+    box-shadow: 0 0 0 2px $color;
+  }
+}

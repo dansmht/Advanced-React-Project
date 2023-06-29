@@ -1,0 +1,95 @@
+@import "src/app/styles/mixins";
+
+$height: 40px;
+$horizontal-padding: 8px;
+$adornment-margin: 8px;
+$outline-color: var(--hover-bg-color);
+$focus-outline-color: var(--secondary-text-color);
+
+.InputWrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: $height;
+  margin-top: 10px;
+  padding-left: $horizontal-padding;
+  padding-right: $horizontal-padding;
+  color: var(--primary-text-color);
+  background-color: var(--transparent-color);
+  border: 0 solid $outline-color;
+  border-radius: var(--border-radius);
+  transition-property: box-shadow, border-color, background-color;
+  transition-duration: 0.2s;
+
+  .Input {
+    min-width: 0;
+    width: 100%;
+    color: currentcolor;
+    background: none;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      user-select: none;
+      color: var(--secondary-text-color);
+      opacity: 0.5;
+    }
+  }
+
+  &.unstyled {
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+  }
+
+  &.flushed {
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom-width: 2px;
+    border-radius: 0;
+
+    &:focus-within {
+      border-color: $focus-outline-color;
+    }
+  }
+
+  &.filled {
+    @include outline-focus-within($focus-outline-color);
+
+    background-color: $outline-color;
+
+    &:focus-within {
+      background-color: var(--transparent-color);
+    }
+  }
+
+  &.outline {
+    @include outline-focus-within($focus-outline-color);
+
+    border-width: 2px;
+
+    &:focus-within {
+      border-color: var(--transparent-color);
+    }
+  }
+
+  .LeftAdornment,
+  .RightAdornment {
+    height: $height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .LeftAdornment {
+    margin-right: $adornment-margin;
+  }
+
+  .RightAdornment {
+    margin-left: $adornment-margin;
+  }
+}

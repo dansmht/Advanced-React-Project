@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
-import classNames from "classnames";
-import classes from "./LoginForm.scss";
 import { useTranslation } from "react-i18next";
-import { Button } from "shared/ui";
+import classNames from "classnames";
+import { Button, Input } from "shared/ui";
+import classes from "./LoginForm.scss";
 
 interface LoginFormProps {
   className?: string;
@@ -14,12 +14,14 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(classes.LoginForm, className)}>
-      <input type="text"/>
-      <input type="text"/>
+    <form className={classNames(classes.LoginForm, className)}>
+      <Input placeholder="Username" variant="unstyled" />
+      <Input placeholder="Password" variant="flushed" leftAdornment={<div>Q</div>} rightAdornment={<div>QWE</div>} />
+      <Input placeholder="Password 2" variant="filled" />
+      <Input placeholder="Password 3" variant="outline" />
       <Button>
         {t("login")}
       </Button>
-    </div>
+    </form>
   );
 };
