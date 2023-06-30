@@ -9,5 +9,9 @@
   "login": "Войти",
   "login2": "Вход",
   "register": "Зарегистрироваться",
-  "registration": "Регистрация"
+  "registration": "Регистрация",
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "typeUsername": "Введите имя пользователя",
+  "typePassword": "********"
 }

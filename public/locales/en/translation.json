@@ -9,5 +9,9 @@
   "login": "Login",
   "login2": "Login",
   "register": "Register",
-  "registration": "Registration"
+  "registration": "Registration",
+  "username": "Username",
+  "password": "Password",
+  "typeUsername": "Type username",
+  "typePassword": "********"
 }
