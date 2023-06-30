@@ -1,0 +1,13 @@
+.Label {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1rem;
+  color: var(--secondary-text-color);
+  transition-property: color;
+  transition-duration: 0.2s;
+
+  &:has(+ div:focus-within) {
+    color: var(--primary-text-color);
+  }
+}
