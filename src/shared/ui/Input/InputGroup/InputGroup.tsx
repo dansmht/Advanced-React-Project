@@ -40,7 +40,10 @@ export const InputGroup: FC<InputGroupProps> = ({
   }
 
   return (
-    <div className={classNames(classes.InputGroup, classes[direction], className)}>
+    <div
+      data-testid="input-group"
+      className={classNames(classes.InputGroup, classes[direction], className)}
+    >
       {clones.map((clone) => clone)}
     </div>
   );
