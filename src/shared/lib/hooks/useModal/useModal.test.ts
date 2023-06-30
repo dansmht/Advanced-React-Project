@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
-import { useModal } from "shared/lib/hooks";
+import { useModal } from "./useModal";
 
 describe("useModal", () => {
 
