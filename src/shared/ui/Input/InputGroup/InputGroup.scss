@@ -1,0 +1,13 @@
+.InputGroup {
+  display: flex;
+
+  &.horizontally {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  &.vertically {
+    flex-direction: column;
+  }
+}
