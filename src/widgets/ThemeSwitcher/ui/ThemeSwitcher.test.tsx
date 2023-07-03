@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { ThemeSwitcher } from "widgets";
 import { renderComponent } from "shared/lib/tests/renderComponent/renderComponent";
-import { LOCAL_STORAGE_THEME_KEY } from "app/providers/ThemeProvider/lib/ThemeContext";
+import { LocalStorageKeys } from "shared/constants/localStorageKeys";
 
 describe("ThemeSwitcher", () => {
 
@@ -35,8 +35,8 @@ describe("ThemeSwitcher", () => {
 
   it("should set theme to localstorage on toggle", () => {
     fireEvent.click(toggleThemeButton);
-    expect(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)).toEqual("dark");
+    expect(localStorage.getItem(LocalStorageKeys.THEME)).toEqual("dark");
     fireEvent.click(toggleThemeButton);
-    expect(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)).toEqual("light");
+    expect(localStorage.getItem(LocalStorageKeys.THEME)).toEqual("light");
   });
 });

@@ -1,5 +1,6 @@
 import { useContext, useLayoutEffect } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import { Theme, ThemeContext } from "./ThemeContext";
+import { LocalStorageKeys } from "shared/constants/localStorageKeys";
 
 interface UseThemeResult {
   theme: Theme,
@@ -13,7 +14,7 @@ export const useTheme = (): UseThemeResult => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
 
     setTheme(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    localStorage.setItem(LocalStorageKeys.THEME, newTheme);
   };
 
   useLayoutEffect(() => {
