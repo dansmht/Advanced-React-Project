@@ -1,11 +1,13 @@
 import { Decorator } from "@storybook/react";
-import { StoreProvider } from "app/providers";
+import { RootState, StoreProvider } from "app/providers";
 import { counterState } from "shared/constants/tests/mocks/counterState";
 import { userState } from "shared/constants/tests/mocks/userState";
+import { loginState } from "shared/constants/tests/mocks/loginState";
 
-const initialState = {
+const initialState: RootState = {
   counter: counterState,
   user: userState,
+  login: loginState
 };
 
 export const StoreDecorator: Decorator = (Story) => (

@@ -1,2 +1,2 @@
-export { userReducer, userActions } from "./model/slice";
-export { User, UserState } from "./model/types";
+export { userReducer, userActions } from "./model/slice/userSlice";
+export { User, UserState } from "./model/types/userTypes";

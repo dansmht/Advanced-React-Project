@@ -1,8 +1,9 @@
-import { FC, ReactNode } from "react";
+import { FC, FormEvent, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { Button, Input, InputGroup, Label } from "shared/ui";
-import { useInput } from "shared/lib/hooks";
+import { useActionCreators, useInput } from "shared/lib/hooks";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import classes from "./LoginForm.scss";
 
 interface LoginFormProps {
@@ -13,12 +14,25 @@ interface LoginFormProps {
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 
   const { t } = useTranslation();
+  const actions = useActionCreators({ loginByUsername: loginByUsername });
 
   const [username, setUsername] = useInput();
   const [password, setPassword] = useInput();
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    actions.loginByUsername({
+      username,
+      password,
+    });
+  };
+
   return (
-    <form className={classNames(classes.LoginForm, className)}>
+    <form
+      className={classNames(classes.LoginForm, className)}
+      onSubmit={onSubmit}
+    >
       <InputGroup>
         <Label>{t("username")}</Label>
         <Input

@@ -30,14 +30,19 @@ server.post("/login", (req, res) => {
 
   console.log("USER", user);
 
-
   if (!user) {
     return res.status(401).json({ message: "INVALID CREDENTIALS" });
   }
 
   const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1d" });
 
-  return res.json(token);
+  const userCopy = { ...user };
+  delete userCopy.password;
+
+  return res.json({
+    ...userCopy,
+    token,
+  });
 });
 
 server.use((req, res, next) => {
