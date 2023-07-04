@@ -3,10 +3,7 @@ export interface User {
   username: string;
 }
 
-export interface UserWithToken extends User {
-  token: string;
-}
-
 export interface UserState {
-  authData?: UserWithToken;
+  authData?: User;
+  status: "init" | "pending" | "initialized";
 }

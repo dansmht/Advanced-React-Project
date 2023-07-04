@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createReducer } from "@reduxjs/toolkit";
 import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 import { LoginState } from "../types/loginTypes";
 
@@ -7,11 +7,9 @@ const initialState: LoginState = {
   errorMessage: null,
 };
 
-const loginSlice = createSlice({
-  name: "login",
+export const loginReducer = createReducer(
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  (builder) => {
     builder
       .addCase(loginByUsername.pending, (state) => {
         state.status = "loading";
@@ -23,11 +21,6 @@ const loginSlice = createSlice({
       .addCase(loginByUsername.rejected, (state, action) => {
         state.status = "error";
         state.errorMessage = action.payload;
-        console.error("ERROR ACTION", action);
+        console.error("ERROR ACTION 222", action);
       });
-  }
-});
-
-export const {
-  reducer: loginReducer,
-} = loginSlice;
+  });

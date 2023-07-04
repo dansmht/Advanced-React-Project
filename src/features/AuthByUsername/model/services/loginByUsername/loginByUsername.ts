@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { User } from "entities/User";
+import { api } from "shared/api/api";
 import { userActions } from "entities/User/model/slice/userSlice";
+import { LocalStorageKeys } from "shared/constants/localStorageKeys";
+import { User } from "entities/User";
 
 interface LoginByUsernameProps {
   username: string;
@@ -11,32 +13,17 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
   "login/loginByUsername",
   async (userCredentials, thunkAPI) => {
 
-    const body = JSON.stringify(userCredentials);
-
     try {
-      const response = await fetch("http://localhost:8000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body,
-      });
+      const { user, token } = await api
+        .post("login", { json: userCredentials })
+        .json() as { user: User, token: string };
 
-      const result = await response.json();
+      thunkAPI.dispatch(userActions.setAuthData(user));
+      localStorage.setItem(LocalStorageKeys.TOKEN, token);
 
-      console.log("Response status code", response.status, response.ok, result);
-      if (response.status < 200 || response.status >= 300) {
-        return thunkAPI.rejectWithValue(result.message);
-      }
-      if (!result) {
-        return thunkAPI.rejectWithValue("SERVER ERROR");
-      }
-
-      thunkAPI.dispatch(userActions.setAuthData(result));
-
-      return result;
+      return user;
     } catch (err) {
-      console.warn("ERROR loginByUsername", err);
+      console.log("WTRFFFF");
       return thunkAPI.rejectWithValue(err.message);
     }
   }

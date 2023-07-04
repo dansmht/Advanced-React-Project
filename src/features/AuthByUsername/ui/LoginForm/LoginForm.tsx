@@ -1,23 +1,27 @@
-import { FC, FormEvent, ReactNode } from "react";
+import { FC, FormEvent } from "react";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 import { Button, Input, InputGroup, Label } from "shared/ui";
 import { useActionCreators, useInput } from "shared/lib/hooks";
+import { selectLoginStatus } from "features/AuthByUsername";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import classes from "./LoginForm.scss";
 
 interface LoginFormProps {
-  className?: string;
-  children?: ReactNode;
+  onClose: VoidFunction;
 }
 
-export const LoginForm: FC<LoginFormProps> = ({ className }) => {
+export const LoginForm: FC<LoginFormProps> = ({ onClose }) => {
 
   const { t } = useTranslation();
   const actions = useActionCreators({ loginByUsername: loginByUsername });
 
+  const loginStatus = useSelector(selectLoginStatus);
+
   const [username, setUsername] = useInput();
   const [password, setPassword] = useInput();
+
+  const isLoginDisabled = loginStatus === "loading";
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -25,12 +29,15 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     actions.loginByUsername({
       username,
       password,
-    });
+    })
+      .unwrap()
+      .then(onClose)
+      .catch(console.error);
   };
 
   return (
     <form
-      className={classNames(classes.LoginForm, className)}
+      className={classes.LoginForm}
       onSubmit={onSubmit}
     >
       <InputGroup>
@@ -56,7 +63,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
         />
       </InputGroup>
 
-      <Button type="submit">
+      <Button type="submit" disabled={isLoginDisabled}>
         {t("login")}
       </Button>
     </form>

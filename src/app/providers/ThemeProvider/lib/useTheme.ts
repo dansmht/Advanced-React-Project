@@ -4,7 +4,7 @@ import { LocalStorageKeys } from "shared/constants/localStorageKeys";
 
 interface UseThemeResult {
   theme: Theme,
-  toggleTheme: () => void;
+  toggleTheme: VoidFunction;
 }
 
 export const useTheme = (): UseThemeResult => {

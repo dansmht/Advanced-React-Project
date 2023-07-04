@@ -7,7 +7,7 @@ import classes from "./LoginModal.scss";
 interface LoginModalProps {
   isOpen: boolean;
   title: string;
-  onClose: () => void;
+  onClose: VoidFunction;
   className?: string;
   children?: ReactNode;
 }
@@ -26,7 +26,7 @@ export const LoginModal: FC<LoginModalProps> = ({
       className={classNames(classes.LoginModal, className)}
       onClose={onClose}
     >
-      <LoginForm />
+      <LoginForm onClose={onClose} />
     </Modal>
   );
 };
