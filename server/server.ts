@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require("fs");
 const path = require("path");
 const jsonServer = require("json-server");
 const jwt = require("jsonwebtoken");
-
-const dbFileName = "db.json";
-const SERVER_LATENCY_IN_MS = 500;
-const JWT_SECRET = "SECRET";
-const PORT = 8000;
+const { getDatabaseData, getUserWithoutPassword } = require("./helpers.ts");
+const { dbFileName, SERVER_LATENCY_IN_MS, PORT, JWT_SECRET } = require("./constants.ts");
 
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, dbFileName));
@@ -23,8 +19,7 @@ server.use(async (req, res, next) => {
 
 server.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, dbFileName)));
-  const { users } = db;
+  const { users } = getDatabaseData();
 
   const user = users.find((user) => user.username === username && user.password === password);
 
@@ -34,13 +29,15 @@ server.post("/login", (req, res) => {
     return res.status(401).json({ message: "INVALID CREDENTIALS" });
   }
 
-  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1d" });
+  const token = jwt.sign({
+    id: user.id,
+    username: user.username,
+  }, JWT_SECRET, { expiresIn: "1d" });
 
-  const userCopy = { ...user };
-  delete userCopy.password;
+  const userWithoutPassword = getUserWithoutPassword(user);
 
   return res.json({
-    ...userCopy,
+    user: userWithoutPassword,
     token,
   });
 });
@@ -62,6 +59,22 @@ server.use((req, res, next) => {
     return res.status(401).json({ message: "INVALID TOKEN" });
   }
   next();
+});
+
+server.get("/me", (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+
+  const jwtPayload = jwt.decode(token);
+
+  const userId = jwtPayload.id;
+
+  const { users } = getDatabaseData();
+
+  const user = users.find((user) => user.id === userId);
+
+  const userWithoutPassword = getUserWithoutPassword(user);
+
+  return res.json(userWithoutPassword);
 });
 
 server.use(router);
