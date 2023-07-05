@@ -5,7 +5,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BuildOptions } from "./types/config";
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] => {
 
   const plugins = [
     new HtmlWebpackPlugin({
@@ -17,10 +17,11 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: isDev,
+      __IS_DEV__: JSON.stringify(isDev),
+      __BASE_URL__: JSON.stringify(apiUrl),
     }),
   ];
-  
+
   if (isDev) {
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false,

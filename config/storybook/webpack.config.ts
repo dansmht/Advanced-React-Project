@@ -23,6 +23,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   if (definePlugin) {
     definePlugin.definitions["__IS_DEV__"] = "\"true\"";
+    definePlugin.definitions["__BASE_URL__"] = "";
+  } else {
+    config.plugins.push(new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __BASE_URL__: JSON.stringify(""),
+    }));
   }
 
   return config;

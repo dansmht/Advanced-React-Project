@@ -2,7 +2,7 @@ import ky from "ky";
 import { LocalStorageKeys } from "shared/constants/localStorageKeys";
 
 export const api = ky.create({
-  prefixUrl: "http://localhost:8000",
+  prefixUrl: __BASE_URL__,
   hooks: {
     beforeRequest: [
       (request) => {
@@ -13,14 +13,8 @@ export const api = ky.create({
         }
       },
     ],
-    // TODO
-    // afterResponse: [
-    //   (response)
-    // ],
     beforeError: [
-      (error) => {
-        return error.response.json();
-      }
+      (error) => error.response.json(),
     ],
   },
 });
