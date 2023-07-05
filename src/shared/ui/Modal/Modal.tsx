@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { FC, MouseEventHandler, ReactNode, TouchEventHandler, useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Button, ButtonTheme, Portal } from "shared/ui";
 import { EventCodes } from "shared/constants/eventCodes";
@@ -29,7 +29,7 @@ export const Modal: FC<ModalProps> = ({
   const [modalClassName, setModalClassName] = useState(defaultModalClassName);
   const [isClosing, setIsClosing] = useState(false);
 
-  const stopPropagation: MouseEventHandler = (e) => {
+  const stopPropagation: MouseEventHandler & TouchEventHandler = (e) => {
     e.stopPropagation();
   };
 
@@ -89,13 +89,15 @@ export const Modal: FC<ModalProps> = ({
       <div
         data-testid="modal-overlay"
         className={modalClassName}
-        onClick={onModalClose}
+        onMouseDown={onModalClose}
+        onTouchStart={onModalClose}
       >
         <div className={classes.ContentWrapper}>
           <div
             data-testid="modal-content"
             className={classes.Content}
-            onClick={stopPropagation}
+            onMouseDown={stopPropagation}
+            onTouchStart={stopPropagation}
           >
             <header className={classes.ModalHeader}>
               <h3 className={classes.ModalTitle}>
