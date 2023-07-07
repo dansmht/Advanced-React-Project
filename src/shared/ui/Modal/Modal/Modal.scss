@@ -1,0 +1,111 @@
+.Container {
+  isolation: isolate;
+  position: fixed;
+  inset: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .Overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--overlay-bg-color);
+    backdrop-filter: var(--modal-backdrop-blur);
+      opacity: 0.5;
+    z-index: -1;
+      transition: opacity 0.2s linear;
+  }
+
+  .Content {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: var(--secondary-bg-color);
+    padding: var(--modal-padding);
+    transform: scale(0.7) translateY(70px);
+    transform-origin: bottom;
+    opacity: 0;
+    transition: transform 0.1s linear,
+                opacity 0.1s linear;
+  }
+
+  &.Open {
+    .Overlay {
+      opacity: 1;
+    }
+
+    .Content {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &.Closing {
+    .Content {
+      transform: scale(0.7) translateY(70px);
+      opacity: 0;
+    }
+  }
+}
+
+//.ModalOverlay {
+//  position: fixed;
+//  left: 0;
+//  top: 0;
+//  width: 100vw;
+//  height: 100vh;
+//  background-color: var(--overlay-bg-color);
+//  backdrop-filter: var(--modal-backdrop-blur);
+//  z-index: var(--z-index-modal-overlay);
+//  opacity: 0.5;
+//  transition: opacity 0.2s linear;
+//
+//  .ContentWrapper {
+//    position: fixed;
+//    left: 0;
+//    top: 0;
+//    width: 100vw;
+//    height: 100dvh;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    overflow: auto;
+//    overscroll-behavior-y: none;
+//    z-index: var(--z-index-modal-content);
+//
+//    .Content {
+//      max-width: 500px;
+//      width: 100%;
+//      border-radius: 8px;
+//      background-color: var(--secondary-bg-color);
+//      transform: scale(0.7) translateY(70px);
+//      transform-origin: bottom;
+//      opacity: 0;
+//      transition: transform 0.1s linear,
+//                  opacity 0.1s linear;
+//
+//
+//      .ModalBody {
+//        padding: var(--modal-padding);
+//      }
+//    }
+//  }
+//
+//  &.Open {
+//    opacity: 1;
+//
+//    .Content {
+//      transform: scale(1);
+//      opacity: 1;
+//    }
+//  }
+//
+//  &.Closing {
+//    .Content {
+//      transform: scale(0.7) translateY(70px);
+//      opacity: 0;
+//    }
+//  }
+//}

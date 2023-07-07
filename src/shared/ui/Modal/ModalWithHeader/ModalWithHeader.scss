@@ -1,0 +1,29 @@
+.Content {
+  padding: 0 !important;
+
+  .Header {
+    height: 50px;
+    padding: 0 var(--modal-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--hover-bg-color);
+
+    .Title {
+      font: var(--font-md);
+      font-weight: bold;
+    }
+
+    .CloseButton {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      padding: 0 5px;
+      background-color: var(--hover-bg-color);
+    }
+  }
+
+  .Body {
+    padding: var(--modal-padding);
+  }
+}

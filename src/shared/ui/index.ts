@@ -4,5 +4,6 @@ export { InputGroup } from "./Input/InputGroup/InputGroup";
 export { Label } from "./Input/Label/Label";
 export { Input, InputVariant } from "./Input/Input/Input";
 export { Loader } from "./Loader/Loader";
-export { Modal } from "./Modal/Modal";
+export { Modal } from "./Modal/Modal/Modal";
+export { ModalWithHeader } from "./Modal/ModalWithHeader/ModalWithHeader";
 export { Portal } from "./Portal/Portal";

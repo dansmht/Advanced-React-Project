@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import classNames from "classnames";
-import { Modal } from "shared/ui";
+import { ModalWithHeader } from "shared/ui";
 import { LoginForm } from "../LoginForm/LoginForm";
 import classes from "./LoginModal.scss";
 
@@ -20,13 +20,13 @@ export const LoginModal: FC<LoginModalProps> = ({
 }) => {
 
   return (
-    <Modal
+    <ModalWithHeader
       isOpen={isOpen}
       title={title}
       className={classNames(classes.LoginModal, className)}
       onClose={onClose}
     >
       <LoginForm onClose={onClose} />
-    </Modal>
+    </ModalWithHeader>
   );
 };

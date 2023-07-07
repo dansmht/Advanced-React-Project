@@ -29,7 +29,6 @@ const ModalWithHook = ({ initialIsOpen = false }: { initialIsOpen?: boolean }) =
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        title="Modal"
       >
         Content
       </Modal>
