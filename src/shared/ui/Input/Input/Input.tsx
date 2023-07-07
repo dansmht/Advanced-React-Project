@@ -1,10 +1,10 @@
-import { FC, InputHTMLAttributes, ReactNode } from "react";
+import { ComponentProps, FC, ReactNode } from "react";
 import classNames from "classnames";
 import classes from "./Input.scss";
 
 export type InputVariant = "unstyled" | "flushed" | "filled" | "outline";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends ComponentProps<"input"> {
   variant?: InputVariant;
   type?: "text" | "password" | "email";
   leftAdornment?: ReactNode;

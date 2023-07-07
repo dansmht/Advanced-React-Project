@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { ComponentProps, FC } from "react";
 import classNames from "classnames";
 import classes from "./Button.scss";
 
@@ -7,9 +7,8 @@ export enum ButtonTheme {
   FILLED = "filled",
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ComponentProps<"button"> {
   theme?: ButtonTheme;
-  className?: string;
 }
 
 export const Button: FC<ButtonProps> = ({

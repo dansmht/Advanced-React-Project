@@ -1,8 +1,8 @@
-import { FC, LabelHTMLAttributes, ReactNode } from "react";
+import { ComponentProps, FC, ReactNode } from "react";
 import classNames from "classnames";
 import classes from "./Label.scss";
 
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+interface LabelProps extends ComponentProps<"label"> {
   className?: string;
   children?: ReactNode;
 }
