@@ -6,6 +6,7 @@ export type InputVariant = "unstyled" | "flushed" | "filled" | "outline";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: InputVariant;
+  type?: "text" | "password" | "email";
   leftAdornment?: ReactNode;
   rightAdornment?: ReactNode;
   autoComplete?: "on" | "off";
